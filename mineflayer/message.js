@@ -1,5 +1,3 @@
-// Put this in your message.js file inside the mineflayer folder
-// Since a handler, we have to import the arguments
 module.exports = async (bot, jsonMsg, position) => {
     // Import
     const Discord = require('discord.js');
@@ -17,8 +15,6 @@ module.exports = async (bot, jsonMsg, position) => {
             let username = jsonMsg.extra ? jsonMsg.extra[0].text.replace('§2Guild > ', '').replace(/§7/g, '').replace(/§f/g, '').replace(/§3/g, '').replace(/§a/g, '').replace(/§6/g, '').replace(/§b/g, '').replace(/§d/, '').replace(/§c/g, '').replace(/§d/g, '').replace(/§e/g, '').replace(/§1/g, '').replace(/§0/g, '').replace(/§2/g, '').replace(/§4/g, '').replace(/§5/g, '').replace(/§8/g, '').replace(/§9/g, '').replace('[VIP] ', '').replace('[VIP+]', '').replace('[MVP]', '').replace('[MVP+]', '').replace('[MVP++]', '').replace('[P]', '').replace('[DGD]', '').replace('[GM]', '').replace('[BG]', '').replace('[EX]', '').replace('[GD]', '').replace(' :', '') : null;
             // Fetch the message (if it exists)
             let msg = jsonMsg.extra ? jsonMsg.extra[1].text : null;
-//§ehas invited you to join their party! You have §c60 §eseconds to accept. §6Click here to join! §9-----------------------------
-            // Detects if username fetch and message fetch were sucessful
             if (username !== null && msg !== null) {
                 // Used to get the player's uuid for the image using the username
                 fetch(`https://api.mojang.com/users/profiles/minecraft/${username.replace(/[ ]/g, '')}`)
