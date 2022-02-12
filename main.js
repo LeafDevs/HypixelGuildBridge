@@ -1,4 +1,3 @@
-// index.js
 const mineflayer = require('mineflayer');
 const discord = require("discord.js");
 const client = new discord.Client()
@@ -8,9 +7,9 @@ const fs = require("fs")
 
 const bot = mineflayer.createBot({
   host: 'mc.hypixel.net', // Bot connects to the Hypixel Network
-  username: "peesmp123@gmail.com", // Your bot account email (preferably in a .env)
-  password: "209180$$aa", // Your bot account password (preferably in a .env)
-  auth: "microsoft"
+  username: "redacted@redacted.redacted", // Your bot account email (preferably in a .env)
+  password: "redacted", // Your bot account password (preferably in a .env)
+  auth: "microsoft" // auth FOR YOUR MC ACCOUNT (microsoft or mojang)
 })
 
 module.exports = {bot, client}; // Exporting Discord Client and Mineflayer Bot used for each of the events
@@ -33,7 +32,7 @@ bot.on("message", message => {
         const match = message.toString().match(/(?<username>[a-zA-Z]+) has invited you to join their party/) ?.groups
         bot.chat(`/p accept ${match.username}`)
         setTimeout(() => {
-            bot.chat("/pc Hello welcome to the Seemingly Guild Frag Bot. (pog champ ik) i will be making this a whitelist for the guild if u would like a whitelist please contact PeeBird#5540")
+            bot.chat("/pc Hello welcome to my frag bot.") // HYPIXEL's NEW LIMBO SYSTEM SCREWED THIS
         }, 200)
 
 
@@ -48,11 +47,11 @@ client.on("message", async message => {
         // Don't want our bot to be stuck in an infinite loop!
         if (message.author.bot) return;
         // If the message was in the specified channel
-        if (message.content.startsWith("-eval")) {
-            if (!message.author.id === "458728681649471489") {
+        if (message.content.startsWith("-eval")) { // BE CAREFUL WITH THIS COMMAND DO NOT RUN ANYTHING RELATED TO DISCORD (message.channel.send(client.token);
+            if (!message.author.id === "YOUR ID HERE") {
                 const embed = {
                     "title": "Error",
-                    "description": "You are not allowed to run this command.",
+                    "description": "You are not allowed to run this command.", 
                     "color": 16711680
                   };
                 message.channel.send( { embed } )
@@ -93,4 +92,4 @@ client.on("message", async message => {
      
 })
 
-client.login("ODYzMzk3MDA5NjEyMDc5MTE0.YOmTIA.Ha9GoB3J2XcZiaqpcBBOPmrXw-0")
+client.login("TOKEN")
